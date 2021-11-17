@@ -1,0 +1,138 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+    font-family: "Graphik", Arial, Helvetica, sans-serif;
+    width: 100vw;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+body{
+	 background:linear-gradient(113deg, rgba(255,0,0,0.7) 0%,rgba(0,5,120,0.7) 70%);
+ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ccff0000', endColorstr='#85000578',GradientType=1 );
+}
+
+
+.form_container{
+	
+	width: 30%;
+    margin: 0 auto;
+    height: 33vw;
+    background: #e5d1d1;
+    margin-top:7vw;
+    border-radius:3px;
+   background: #dedddd;
+    
+	
+}
+.submit{
+	background: #c34c89;
+    padding: 0.9vw 3.9vw;
+    border-radius: 10px;
+    border: none;
+    margin-left: 7.9rem;
+    margin-top: 1rem;
+    display: block;
+}    
+    
+    
+.flex_row_form{
+	
+	display:flex;
+	width:22vw;
+	  margin-bottom: 2vw;
+	
+	
+}
+
+table {
+	position:relative ; 
+	top : 9vw;
+}
+.label{
+	     display: block;
+    	 width: 5vw;
+    	 padding-left: 0.9vw;
+}
+
+
+.input{
+	    width: 26vw;
+    border-radius: 10px;
+    padding: 1.2vw;
+    border: 1px solid white;
+    border-radius: 29px;
+    margin-left: 0.5vw
+;
+}
+
+h1 {
+    font-size: 3rem;
+    position: relative;
+    top: 6vw;   
+     left: 10.7vw;
+     font-weight:bold;
+}
+
+.notValid{
+	position: relative;
+    top: 10vw;
+    left: 2vw;
+    color: red;
+    font-weight: 800;
+   }
+
+
+.Valid{
+	position: relative;
+    top: 10vw;
+    left: 2vw;
+    color: black;
+    font-weight: 800;
+   }
+
+
+
