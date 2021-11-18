@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+<%@page import="model.Formation"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,13 +8,17 @@
 </head>
 <body>
 		
-		<h1>t curieux voici le detail detail de la formation : </h1>
-		<p><strong>titre formation :</strong> ${titre}</p>
-		<p><strong>programme </strong> ${programme}</p>
-		<p><strong>nombre eleve :</strong> ${nbEleve}</p>
+<% Formation formation = (Formation) request.getAttribute("formation"); %>
+		<h1><%= formation.getTitle() %></h1>
+		<p>
+			<%= formation.getProgramme() %>
+		</p>
 		
+		<p>
+			<%= formation.getNbEleves() %>
+		</p>
 		
-	
+
 
 </body>
 </html>

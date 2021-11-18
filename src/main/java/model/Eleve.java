@@ -44,7 +44,18 @@ public class Eleve {
 
 	
 	
-	
+
+	public Eleve(String uID, String name, String surname) {
+		super();
+		this.setUID(uID);
+		this.setName(name);
+		this.setSurname(surname);
+		this.setAge(age);
+		this.setNote(note);
+		this.setFormation(formation);
+	}
+
+
 
 	public Eleve(String uID, String name, String surname, int age, double note, Formation formation) {
 		super();

@@ -10,13 +10,13 @@
 </head>
 	<body>
 		
-		<% List<Eleve> elevesList = (List<Eleve>) request.getAttribute("elevesData"); %>
-		    	<h1> liste des titres des eleves :</h1>
-		    
-		<% for(int i = 0; i < elevesList.size(); i++){%>
-			<p><strong>titre de eleve  <%=i+1%> :</strong>  <%=elevesList.get(i).getName()%></p>
-			<a href="eleve-details?id=<%=elevesList.get(i).getUID()%>"> plus d'infos sur eleve <%=i+1%>  </a>
-		<% }%>
+			<% for (Eleve eleve : (List<Eleve>) request.getAttribute("eleves")) { %>
+		<li>	
+			<a href="eleve-details?id=<%= eleve.getUID() %>"><%= eleve.getName() %></a>
+		</li>
+	<% } %>
 		
 	</body>
 </html>
+
+

@@ -15,59 +15,76 @@ import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import model.Eleve;
 import model.Formation;
+import services.DataServices;
 
 @WebServlet (urlPatterns= "/eleves-listes" )
 
 
 public class  ElevesListServlet extends HttpServlet{
+	// Je crée une liste eleve initiliasé pour stockage plus tard et enoie a jsp 
+		private List<Eleve> eleves = new ArrayList<Eleve>();
+		// Je crée une vraiable qui contiendra plus tard dans mon code un article
+		private DataServices elevesServices = DataServices.getInstance();
+		
+	
+	public ElevesListServlet() {
+    	this.eleves = elevesServices.getEleves();
+
+		
+	}
 	
 
 	@Override
 	protected void doGet(HttpServletRequest request , HttpServletResponse response) throws ServletException ,IOException{
 			//1) ServletOutputStream out = response.getOutputStream() ; 
-		
-		
-	Formation formation1 = new Formation("56SDSER","titre formation1","prog formation 1",20);
-	Formation formation2 = new Formation("6656DER","titre formation2","prog formation 2",32);
-	Formation formation3 = new Formation("223ERTT","titre formation3","prog formation 3",15);
-	Formation formation4 = new Formation("3457ERT","titre formation4","prog formation 4",20);
-
-	List<Formation> formation = new ArrayList<>(); 
-
-	
-	formation.add(formation1);
-	formation.add(formation2);
-	formation.add(formation3);
-	formation.add(formation4);
-	formation.add(formation1);
-
+				request.setAttribute("eleves", eleves);
 
 		
+			/*
+			 * Formation formation1 = new
+			 * Formation("56SDSER","titre formation1","prog formation 1",20); Formation
+			 * formation2 = new
+			 * Formation("6656DER","titre formation2","prog formation 2",32); Formation
+			 * formation3 = new
+			 * Formation("223ERTT","titre formation3","prog formation 3",15); Formation
+			 * formation4 = new
+			 * Formation("3457ERT","titre formation4","prog formation 4",20);
+			 * 
+			 * List<Formation> formation = new ArrayList<>();
+			 * 
+			 * 
+			 * formation.add(formation1); formation.add(formation2);
+			 * formation.add(formation3); formation.add(formation4);
+			 * formation.add(formation1);
+			 * 
+			 * 
+			 * 
+			 * 
+			 * 
+			 * Eleve eleve1 = new Eleve("12AZER","name1" ,"surname1",20 , 18,formation1);
+			 * Eleve eleve2 = new Eleve("2356DFR","name2" ,"surname2",15 , 16.5,formation2);
+			 * Eleve eleve3 = new Eleve("SDSD44","name3" ,"surname3",18 , 12,formation2);
+			 * Eleve eleve4 = new Eleve("1234DD","name4" ,"surname4",16, 8,formation4);
+			 * Eleve eleve5 = new Eleve("453FRE","name5" ,"surname5",19, 12,formation4);
+			 * 
+			 * List<Eleve> eleves = new ArrayList<>();
+			 * 
+			 * eleves.add(eleve1); eleves.add(eleve2); eleves.add(eleve3);
+			 * eleves.add(eleve4); eleves.add(eleve5);
+			 */
 		
-		
-		Eleve eleve1 = new Eleve("12AZER","name1" ,"surname1",20 , 18,formation1);
-		Eleve eleve2 = new Eleve("2356DFR","name2" ,"surname2",15 , 16.5,formation2);
-		Eleve eleve3 = new Eleve("SDSD44","name3" ,"surname3",18 , 12,formation2);
-		Eleve eleve4 = new Eleve("1234DD","name4" ,"surname4",16, 8,formation4);
-		Eleve eleve5 = new Eleve("453FRE","name5" ,"surname5",19, 12,formation4);
-
-		List<Eleve> eleves = new ArrayList<>(); 
-		
-		eleves.add(eleve1);
-		eleves.add(eleve2);
-		eleves.add(eleve3);
-		eleves.add(eleve4);
-		eleves.add(eleve5);
-
-		
-			request.setAttribute("elevesData", eleves);
-
-			  HttpSession session = request.getSession(); 
-			  session.setAttribute("elevesSession",eleves);
-			  session.setAttribute("formationSession",formation);
-			  
+			/*
+			 * request.setAttribute("elevesData", eleves);
+			 * 
+			 * HttpSession session = request.getSession();
+			 * session.setAttribute("elevesSession",eleves);
+			 * session.setAttribute("formationSession",formation);
+			 */
 		
 			
+		
+		
+		
 			request.getServletContext().getRequestDispatcher("/WEB-INF/eleves.jsp").forward(request,response);		
 		
 	}

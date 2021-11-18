@@ -10,14 +10,14 @@
 </head>
 	<body>
 		
-		<% List<Formation> formationList = (List<Formation>) session.getAttribute("formationSession"); %>
-		 
-		    	<h1> liste des titres des formations :</h1>
-		    
-		<% for(int i = 0; i < formationList.size(); i++){%>
-			<p><strong>titre de la formation  <%=i+1%> :</strong>  <%=formationList.get(i).getTitle()%></p>
-			<a href="formation-details?id=<%=formationList.get(i).getUID()%>"> plus d'infos sur la formation <%=i+1%>  </a>
-		<% }%>
+		<% for (Formation formation : (List<Formation>) request.getAttribute("formations")) { %>
+		<li>	
+			<a href="formation-details?title=<%= formation.getTitle() %>"><%= formation.getTitle() %></a>
+		</li>
+	<% } %>
 		
 	</body>
 </html>
+
+
+		

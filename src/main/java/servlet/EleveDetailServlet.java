@@ -14,54 +14,76 @@
   import  jakarta.servlet.http.HttpServletResponse; 
   import jakarta.servlet.http.HttpSession;
   import model.Eleve;
+import services.DataServices;
   
   @WebServlet (urlPatterns= {"/eleve-details"} )
   
   
   public class EleveDetailServlet extends HttpServlet{
   
+		private DataServices elevesServices = DataServices.getInstance();
+	  
+		private Eleve eleve; 
+
+	  
+	  
+	  
+	  
   
   @Override protected void doGet(HttpServletRequest req , HttpServletResponse res) throws ServletException ,IOException{ 
   
-  
-  
-    String UID = req.getParameter("id");
-  
-  
-  
-  
-  HttpSession session = req.getSession(); // recupére objet qui a UID :
-  
-  List<Eleve> elevesList = (List<Eleve>) session.getAttribute("elevesSession") ;
-
-  
-  Eleve eleveDetail =null;
-  
-  for (int i = 0; i < elevesList.size(); i++) {
 	  
-	  if(elevesList.get(i).getUID().equals(UID) ) {
-  
-	  	eleveDetail = elevesList.get(i);
-	  	break; 
-  		}
-  }
-  
-  
-  
-  
+	  
+		eleve = this.elevesServices.getEleveByUID(req.getParameter("id"));
+		
+		
+		if (eleve == null ) {
+			  res.sendRedirect(this.getServletContext().getContextPath() + "/");
+			return; 
+		}
+		
 	
-	  if(eleveDetail==null) {
+		
+		req.setAttribute("eleve", eleve);
 	  
-	  res.sendRedirect(this.getServletContext().getContextPath() + "/");
 	  
-	  return ; }
-	 
   
-  req.setAttribute("name", eleveDetail.getName());
-  req.setAttribute("surname", eleveDetail.getSurname());
-  req.setAttribute("age", eleveDetail.getAge());
-  req.setAttribute("note", eleveDetail.getNote());
-  req.setAttribute("formation", eleveDetail.getFormation().getTitle());
+		/*
+		 * String UID = req.getParameter("id");
+		 * 
+		 * 
+		 * 
+		 * 
+		 * HttpSession session = req.getSession(); // recupére objet qui a UID :
+		 * 
+		 * List<Eleve> elevesList = (List<Eleve>) session.getAttribute("elevesSession")
+		 * ;
+		 * 
+		 * 
+		 * Eleve eleveDetail =null;
+		 * 
+		 * for (int i = 0; i < elevesList.size(); i++) {
+		 * 
+		 * if(elevesList.get(i).getUID().equals(UID) ) {
+		 * 
+		 * eleveDetail = elevesList.get(i); break; } }
+		 * 
+		 * 
+		 * 
+		 * 
+		 * 
+		 * if(eleveDetail==null) {
+		 * 
+		 * res.sendRedirect(this.getServletContext().getContextPath() + "/");
+		 * 
+		 * return ; }
+		 * 
+		 * 
+		 * req.setAttribute("name", eleveDetail.getName()); req.setAttribute("surname",
+		 * eleveDetail.getSurname()); req.setAttribute("age", eleveDetail.getAge());
+		 * req.setAttribute("note", eleveDetail.getNote());
+		 * req.setAttribute("formation", eleveDetail.getFormation().getTitle());
+		 */
  
 
 
