@@ -5,17 +5,20 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <link rel="stylesheet" type="text/css" href="css/formations.css">
 <meta charset="ISO-8859-1">
 <title>Insert title here</title>
 </head>
 	<body>
-		
+	
+	
+			<div class="container_formation flex">	
 			<% for (Eleve eleve : (List<Eleve>) request.getAttribute("eleves")) { %>
-		<li>	
+			
 			<a href="eleve-details?id=<%= eleve.getUID() %>"><%= eleve.getName() %></a>
-		</li>
-	<% } %>
 		
+	<% } %>
+		</div>
 	</body>
 </html>
 
